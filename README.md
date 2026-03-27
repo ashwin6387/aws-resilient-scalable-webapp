@@ -29,9 +29,37 @@ The architecture is designed to ensure:
 ---
 
 ## 🏗️ Architecture
-(Add your architecture diagram here)
+                    Internet
+                        │
+                ┌──────────────┐
+                │  Route 53    │
+                └──────┬───────┘
+                       │
+              ┌──────────────────┐
+              │  ALB (Public)    │
+              └──────┬───────────┘
+                     │
+        ┌────────────┴────────────┐
+        │                         │
+ ┌──────────────┐         ┌──────────────┐
+ │ Private AZ-1 │         │ Private AZ-2 │
+ │   EC2        │         │    EC2       │
+ └──────┬───────┘         └──────┬───────┘
+        │                         │
+        └──────────┬──────────────┘
+                   │
+            ┌─────────────┐
+            │     EFS     │
+            └─────────────┘
 
----
+        (Auto Scaling Group across both AZs)
+
+Public Subnets:
+- ALB
+- NAT Gateway
+
+Private Subnets:
+- EC2 Instances
 
 ## ⚙️ Implementation
 
