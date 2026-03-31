@@ -107,11 +107,6 @@ Private Subnets:
 
 ---
 
-## 📸 Screenshots
-(Add screenshots here)
-
----
-
 ## 💡 Key Learnings
 - AWS networking (VPC, subnets)
 - Load balancing and scaling
